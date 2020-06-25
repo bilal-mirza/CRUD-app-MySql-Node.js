@@ -7,7 +7,7 @@ var db = mysql.createConnection({
     password : '',
     database : 'nodedb'
 })
-
+const port = process.env.PORT || 3000
 // Conneciton check
 db.connect((err) => {
     if(err){
@@ -84,7 +84,6 @@ app.get('/delete/:id', (req, res) => {
     });
 });
 
-app.listen(3000, 'localhost', function(){
-    console.log('Server started on port 3000');
-});
- 
+app.listen(port,() => {
+    console.log(`Server running at port `+port);
+  });
